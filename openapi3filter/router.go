@@ -173,7 +173,7 @@ func (router *Router) FindRoute(method string, url *url.URL) (*Route, map[string
 
 	// Get PathItem
 	root := router.node()
-	log.Println(root)
+	fmt.Printf("%+v\n", root)
 	var route *Route
 	node, paramValues := root.Match(method + " " + remainingPath)
 	log.Println(node)
