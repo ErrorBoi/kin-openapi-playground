@@ -267,6 +267,7 @@ func (currentNode *Node) Match(path string) (*Node, []string) {
 		path = path[:len(path)-1]
 	}
 	variableValues := make([]string, 0, 8)
+	fmt.Printf("Match(): Path = %s", path)
 	return currentNode.matchRemaining(path, false, variableValues)
 }
 
@@ -280,6 +281,8 @@ func (currentNode *Node) matchRemaining(remaining string, hasExtraSlash bool, pa
 	if len(remaining) == 0 && currentNode.Value != nil {
 		return currentNode, paramValues
 	}
+
+	fmt.Print("Current Node Suffixes", currentNode.Suffixes)
 
 	// See if any suffix  matches
 	for _, suffix := range currentNode.Suffixes {
