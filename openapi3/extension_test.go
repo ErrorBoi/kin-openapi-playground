@@ -1,8 +1,8 @@
 package openapi3_test
 
 import (
-	"github.com/getkin/kin-openapi/jsoninfo"
-	"github.com/getkin/kin-openapi/openapi3"
+	"github.com/errorboi/kin-openapi/jsoninfo"
+	"github.com/errorboi/kin-openapi/openapi3"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )

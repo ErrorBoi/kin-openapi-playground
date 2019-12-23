@@ -6,7 +6,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/getkin/kin-openapi/openapi3"
+	"github.com/errorboi/kin-openapi/openapi3"
 	"github.com/stretchr/testify/require"
 )
 
