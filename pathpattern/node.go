@@ -328,6 +328,9 @@ func (currentNode *Node) matchRemaining(remaining string, hasExtraSlash bool, pa
 		}
 		if resultNode != nil && resultNode.Value != nil {
 			// This suffix matched
+			log.Println("This suffix matched")
+			log.Println("Result Node", resultNode)
+			log.Println("Result Values", resultValues)
 			return resultNode, resultValues
 		}
 	}
