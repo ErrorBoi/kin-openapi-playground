@@ -285,7 +285,8 @@ func (currentNode *Node) matchRemaining(remaining string, hasExtraSlash bool, pa
 
 	// See if any suffix  matches
 	for _, suffix := range currentNode.Suffixes {
-		log.Print("Current Node Suffix", suffix)
+		log.Print("Current Node Suffix")
+		log.Println(suffix)
 
 		var resultNode *Node
 		var resultValues []string
