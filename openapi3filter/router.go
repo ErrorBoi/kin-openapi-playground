@@ -4,7 +4,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"log"
 	"net/http"
 	"net/url"
 	"strings"
@@ -173,14 +172,11 @@ func (router *Router) FindRoute(method string, url *url.URL) (*Route, map[string
 
 	// Get PathItem
 	root := router.node()
-	log.Printf("%#v\n", root)
 	var route *Route
 	node, paramValues := root.Match(method + " " + remainingPath)
-	log.Println(node)
 	if node != nil {
 		route, _ = node.Value.(*Route)
 	}
-	log.Println(swagger.Paths)
 	for path, item := range swagger.Paths {
 		if path == remainingPath {
 			pathItem := item

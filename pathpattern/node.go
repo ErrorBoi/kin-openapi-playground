@@ -11,7 +11,6 @@ package pathpattern
 import (
 	"bytes"
 	"fmt"
-	"log"
 	"regexp"
 	"sort"
 	"strings"
@@ -268,7 +267,6 @@ func (currentNode *Node) Match(path string) (*Node, []string) {
 		path = path[:len(path)-1]
 	}
 	variableValues := make([]string, 0, 8)
-	log.Printf("Match(): Path = %s", path)
 	return currentNode.matchRemaining(path, false, variableValues)
 }
 
@@ -285,9 +283,6 @@ func (currentNode *Node) matchRemaining(remaining string, hasExtraSlash bool, pa
 
 	// See if any suffix  matches
 	for _, suffix := range currentNode.Suffixes {
-		log.Print("Current Node Suffix")
-		log.Printf("%#v\n", suffix)
-
 		var resultNode *Node
 		var resultValues []string
 		switch suffix.Kind {
@@ -329,9 +324,6 @@ func (currentNode *Node) matchRemaining(remaining string, hasExtraSlash bool, pa
 		}
 		if resultNode != nil && resultNode.Value != nil {
 			// This suffix matched
-			log.Println("This suffix matched")
-			log.Println("Result Node", resultNode)
-			log.Println("Result Values", resultValues)
 			return resultNode, resultValues
 		}
 	}
