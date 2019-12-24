@@ -180,6 +180,7 @@ func (router *Router) FindRoute(method string, url *url.URL) (*Route, map[string
 	if node != nil {
 		route, _ = node.Value.(*Route)
 	}
+	log.Println(swagger.Paths)
 	if route == nil {
 		return nil, nil, &RouteError{
 			Route: Route{
