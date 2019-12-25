@@ -152,7 +152,11 @@ func (router *Router) FindRoute(method string, url *url.URL) (*Route, map[string
 	var pathParams map[string]string
 	if len(servers) == 0 {
 		remainingPath = url.Path
-		log.Println("Servers length is 0, path = ", remainingPath)
+		log.Println("Servers length is 0, pathBefore = ", remainingPath)
+		for strings.HasSuffix(remainingPath, "/") {
+			remainingPath = remainingPath[:len(remainingPath)-1]
+		}
+		log.Println("Servers length is 0, pathAfter = ", remainingPath)
 	} else {
 		var paramValues []string
 		server, paramValues, remainingPath = servers.MatchURL(url)
