@@ -8,8 +8,8 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/errorboi/kin-openapi/openapi3"
-	"github.com/errorboi/kin-openapi/pathpattern"
+	"github.com/errorboi/kin-openapi-playground/openapi3"
+	"github.com/errorboi/kin-openapi-playground/pathpattern"
 )
 
 type Route struct {

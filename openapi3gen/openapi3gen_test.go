@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/errorboi/kin-openapi/openapi3gen"
+	"github.com/errorboi/kin-openapi-playground/openapi3gen"
 	"github.com/stretchr/testify/require"
 )
 

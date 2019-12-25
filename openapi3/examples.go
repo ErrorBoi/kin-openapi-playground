@@ -1,7 +1,7 @@
 package openapi3
 
 import (
-	"github.com/errorboi/kin-openapi/jsoninfo"
+	"github.com/errorboi/kin-openapi-playground/jsoninfo"
 )
 
 // Example is specified by OpenAPI/Swagger 3.0 standard.

@@ -4,7 +4,7 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/errorboi/kin-openapi/jsoninfo"
+	"github.com/errorboi/kin-openapi-playground/jsoninfo"
 	"github.com/stretchr/testify/assert"
 )
 

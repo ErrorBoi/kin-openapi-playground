@@ -1,4 +1,4 @@
-module github.com/errorboi/kin-openapi
+module github.com/errorboi/kin-openapi-playground
 
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect

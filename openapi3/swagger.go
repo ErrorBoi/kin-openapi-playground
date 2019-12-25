@@ -5,7 +5,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/errorboi/kin-openapi/jsoninfo"
+	"github.com/errorboi/kin-openapi-playground/jsoninfo"
 )
 
 type Swagger struct {

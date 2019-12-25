@@ -10,7 +10,7 @@ package openapi2
 import (
 	"fmt"
 
-	"github.com/errorboi/kin-openapi/openapi3"
+	"github.com/errorboi/kin-openapi-playground/openapi3"
 )
 
 type Swagger struct {

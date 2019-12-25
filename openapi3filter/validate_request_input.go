@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/errorboi/kin-openapi/openapi3"
+	"github.com/errorboi/kin-openapi-playground/openapi3"
 )
 
 // A ContentParameterDecoder takes a parameter definition from the swagger spec,

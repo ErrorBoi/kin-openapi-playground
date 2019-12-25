@@ -3,7 +3,7 @@ package openapi3
 import (
 	"context"
 
-	"github.com/errorboi/kin-openapi/jsoninfo"
+	"github.com/errorboi/kin-openapi-playground/jsoninfo"
 )
 
 // Discriminator is specified by OpenAPI/Swagger standard version 3.0.

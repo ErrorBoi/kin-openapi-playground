@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/errorboi/kin-openapi/jsoninfo"
+	"github.com/errorboi/kin-openapi-playground/jsoninfo"
 )
 
 // Encoding is specified by OpenAPI/Swagger 3.0 standard.
