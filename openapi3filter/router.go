@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"log"
 	"net/http"
 	"net/url"
 	"strings"
@@ -154,6 +155,7 @@ func (router *Router) FindRoute(method string, url *url.URL) (*Route, map[string
 	} else {
 		var paramValues []string
 		server, paramValues, remainingPath = servers.MatchURL(url)
+		log.Println(server, paramValues, remainingPath)
 		if server == nil {
 			return nil, nil, &RouteError{
 				Route: Route{
