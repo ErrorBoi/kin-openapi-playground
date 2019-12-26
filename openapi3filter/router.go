@@ -4,7 +4,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"log"
 	"net/http"
 	"net/url"
 	"strings"
@@ -152,15 +151,9 @@ func (router *Router) FindRoute(method string, url *url.URL) (*Route, map[string
 	var pathParams map[string]string
 	if len(servers) == 0 {
 		remainingPath = url.Path
-		log.Println("Servers length is 0, pathBefore = ", remainingPath)
-		for strings.HasSuffix(remainingPath, "/") {
-			remainingPath = remainingPath[:len(remainingPath)-1]
-		}
-		log.Println("Servers length is 0, pathAfter = ", remainingPath)
 	} else {
 		var paramValues []string
 		server, paramValues, remainingPath = servers.MatchURL(url)
-		log.Println("Servers length is not 0; ",server, paramValues, remainingPath)
 		if server == nil {
 			return nil, nil, &RouteError{
 				Route: Route{
@@ -177,23 +170,6 @@ func (router *Router) FindRoute(method string, url *url.URL) (*Route, map[string
 		}
 	}
 
-	// Get operation
-	for path, item := range swagger.Paths {
-		if path == remainingPath {
-			pathItem := item
-			operation := pathItem.GetOperation(method)
-			if operation == nil {
-				return nil, nil, &RouteError{
-					Route: Route{
-						Swagger: swagger,
-						Server:  server,
-					},
-					Reason: "Path doesn't support the HTTP method",
-				}
-			}
-		}
-	}
-
 	// Get PathItem
 	root := router.node()
 	var route *Route
@@ -202,6 +178,19 @@ func (router *Router) FindRoute(method string, url *url.URL) (*Route, map[string
 		route, _ = node.Value.(*Route)
 	}
 	if route == nil {
+
+		// Get operation
+		pathItem := swagger.Paths[remainingPath]
+		if pathItem == nil || pathItem.GetOperation(method) == nil {
+			return nil, nil, &RouteError{
+				Route: Route{
+					Swagger: swagger,
+					Server:  server,
+				},
+				Reason: "Path doesn't support the HTTP method",
+			}
+		}
+
 		return nil, nil, &RouteError{
 			Route: Route{
 				Swagger: swagger,
